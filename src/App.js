@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import Explore from "./components/pages/Explore";
+import PopularDestinations from "./components/pages/PopularDestinations";
+import Contact from "./components/pages/Contact";
+import TravelTips from "./components/pages/TravelTips";
+import Faq from "./components/pages/Faq";
+import PopularActivities from "./components/pages/PopularActivities";
+
+// Import other components
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Sidebar className="sidebar" />
+        <main className="main">
+          <Routes>
+            <Route path="/Explore" element={<Explore />} />
+            <Route
+              path="/PopularDestinations"
+              element={<PopularDestinations />}
+            />
+            <Route path="/PopularActivities" element={<PopularActivities />} />
+            <Route path="/TravelTips" element={<TravelTips />} />
+            <Route path="/Faq" element={<Faq />} />
+            <Route path="/Contact" element={<Contact />} />
+            {/* Define other routes here */}
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
